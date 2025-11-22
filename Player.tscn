@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5mwoim0bhq54"]
+
+[ext_resource type="Script" uid="uid://bt11rndixbpak" path="res://Player-movement.gd" id="1_tdem5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dshn4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_obed5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ccql5"]
+friction = 0.75
+bounce = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k1bot"]
+size = Vector3(6.24115, 0.45459, 7.08496)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aaats"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, -0.27794, 1.99483, 0.00553894)
+
+[node name="Player" type="RigidBody3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.27794, 0.529606, 0)
+mass = 5.0
+script = ExtResource("1_tdem5")
+movespeed = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_dshn4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_obed5")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Player"]
+transform = Transform3D(-2, -1.23635e-07, 1.23635e-07, 1.7477e-07, -1.4554, 1.37179, 5.16879e-09, 1.37179, 1.4554, 0, -0.0614711, 0.0438931)
+light_energy = 2.5
+light_volumetric_fog_energy = 5.0
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415619, -0.272705, -0.050293)
+physics_material_override = SubResource("PhysicsMaterial_ccql5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_k1bot")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(5.99304, 0, 0, 0, 1, 0, 0, 0, 7.46312, 0, 0, 0)
+mesh = SubResource("BoxMesh_aaats")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0258105, 0.999667, 0, -0.999667, -0.0258105, 0, 9.83195, 0)
+light_color = Color(1, 0.892893, 0.65337, 1)
+light_energy = 5.0
+light_negative = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+offset_left = 408.0
+offset_top = 3.0
+offset_right = 613.0
+offset_bottom = 50.0
+text = "robot = vrai"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+offset_left = 1.0
+offset_top = 622.0
+offset_right = 129.0
+offset_bottom = 648.0
+text = "Mission : survie"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_left = 218.0
+offset_top = 3.0
+offset_right = 423.0
+offset_bottom = 50.0
+text = "batterie = 83 %"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_right = 205.0
+offset_bottom = 47.0
+text = "chances de survie = -27"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = 968.0
+offset_top = -2.0
+offset_right = 1154.0
+offset_bottom = 45.0
+text = "règle a suivre : touche pas d'eau tes un robot"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 3.0
+offset_top = 33.0
+offset_right = 208.0
+offset_bottom = 80.0
+text = "emotion = neutre"
