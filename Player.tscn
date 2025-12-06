@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5mwoim0bhq54"]
+[gd_scene load_steps=13 format=3 uid="uid://c5mwoim0bhq54"]
 
 [ext_resource type="Script" uid="uid://bt11rndixbpak" path="res://Player-movement.gd" id="1_tdem5"]
 
@@ -23,6 +23,8 @@ size = Vector3(6.24115, 0.45459, 7.08496)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aaats"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kpjcp"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xhfnw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kne1u"]
@@ -30,13 +32,17 @@ disable_ambient_light = true
 disable_fog = true
 albedo_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xhfnw"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.27794, 3.30479, 0.00553894)
+rotation_edit_mode = 1
+doppler_tracking = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(2.22849, 0, 0, 0, 3.92693, 0, 0, 0, 0.40581, 0, 3.67872e-08, -0.843028)
+transform = Transform3D(-9.74105e-08, -3.92693, 0, 2.22849, -1.71652e-07, 0, 0, 0, 0.40581, 0, 3.67872e-08, -0.843028)
 layers = 2
 mesh = SubResource("BoxMesh_xhfnw")
 surface_material_override/0 = SubResource("StandardMaterial3D_kpjcp")
@@ -77,7 +83,7 @@ mesh = SubResource("BoxMesh_aaats")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0258105, 0.999667, 0, -0.999667, -0.0258105, 0, 9.83195, 0)
-light_color = Color(1, 0.892893, 0.65337, 1)
+light_color = Color(0, 0.772549, 0.913725, 1)
 light_energy = 5.0
 light_negative = true
 
@@ -89,10 +95,10 @@ offset_bottom = 50.0
 text = "robot = vrai"
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="."]
-offset_left = 1.0
-offset_top = 622.0
-offset_right = 129.0
-offset_bottom = 648.0
+offset_left = 3.0
+offset_top = 72.0
+offset_right = 131.0
+offset_bottom = 98.0
 text = "Mission : survie"
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
@@ -108,6 +114,7 @@ offset_bottom = 47.0
 text = "chances de survie = -27"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
+material = SubResource("CanvasItemMaterial_kpjcp")
 offset_left = 968.0
 offset_top = -2.0
 offset_right = 1154.0
@@ -122,13 +129,20 @@ offset_bottom = 80.0
 text = "emotion = neutre"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.843126, 0.539183, -0.481854)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.91223, 0.536536, -1.65638)
 mesh = SubResource("CapsuleMesh_xhfnw")
 surface_material_override/0 = SubResource("StandardMaterial3D_kne1u")
 
 [node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 908.0
-offset_top = 592.0
-offset_right = 1152.0
-offset_bottom = 645.0
-text = "Enter tes notes Ici"
+offset_left = 909.0
+offset_top = 593.0
+offset_right = 1153.0
+offset_bottom = 646.0
+text = "Entre tes notes ici"
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+material = SubResource("CanvasItemMaterial_xhfnw")
+offset_left = 891.0
+offset_top = 593.0
+offset_right = 906.0
+offset_bottom = 644.0
