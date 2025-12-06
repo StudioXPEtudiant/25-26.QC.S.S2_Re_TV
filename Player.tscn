@@ -113,6 +113,13 @@ offset_right = 205.0
 offset_bottom = 47.0
 text = "chances de survie = -27"
 
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = 562.0
+offset_right = 215.0
+offset_bottom = 609.0
+text = "wasd = controles de mouvement du drone"
+
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
 material = SubResource("CanvasItemMaterial_kpjcp")
 offset_left = 968.0
@@ -127,6 +134,13 @@ offset_top = 33.0
 offset_right = 208.0
 offset_bottom = 80.0
 text = "emotion = neutre"
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+offset_left = 12.0
+offset_top = 618.0
+offset_right = 240.0
+offset_bottom = 647.0
+text = "endroit présent = inconnue"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.91223, 0.536536, -1.65638)
@@ -146,3 +160,10 @@ offset_left = 891.0
 offset_top = 593.0
 offset_right = 906.0
 offset_bottom = 644.0
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="."]
+offset_left = 993.0
+offset_top = 201.0
+offset_right = 1178.0
+offset_bottom = 412.0
+text = "attention pilot de drone seci est Nalox près pour taider a survivre donc pour survivre il faut... (&*(&&% mange *))*&&?*? (&(\"( et avaler un caniche !"

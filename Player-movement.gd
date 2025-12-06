@@ -6,6 +6,7 @@ var verticaleAxe = 0
 
 var horizontalAxe = 0
 
+
 @export var movespeed = 1
 
 # Called when the node enters the scene tree for the first time.
