@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://o0m3ymwh8n5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ea3fl"]
+
+[node name="EndroitsEffronder" type="Node3D"]
+
+[node name="destroyed section" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="destroyed section"]
+transform = Transform3D(0.644361, 0.141557, 0.0051025, -0.672174, 0.135771, -0.00071069, -0.0169416, -0.00281555, 0.222267, 0, 0, 0)
+mesh = SubResource("BoxMesh_ea3fl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="destroyed section"]
+transform = Transform3D(0.047, 0.420575, -0.0787536, -0.606666, 0.0317844, -0.00713519, -0.00301875, 0.160493, 0.207789, -0.351635, -0.087527, 0.00779249)
+mesh = SubResource("BoxMesh_ea3fl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="destroyed section"]
+transform = Transform3D(0.35024, 0.331375, -0.132375, -0.338838, 0.250679, -0.268978, -0.111898, 0.278121, 0.40016, -0.578714, -0.108653, -0.164354)
+mesh = SubResource("BoxMesh_ea3fl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="destroyed section"]
+transform = Transform3D(-0.1526, 0.165251, -0.077306, -2.11493, 0.00154126, 0.0490946, 0.454291, 0.0626845, 0.20259, -0.433783, 0.108581, 0.219532)
+mesh = SubResource("BoxMesh_ea3fl")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="destroyed section"]
+transform = Transform3D(-0.623861, 0.15285, -0.0767339, -1.48553, -0.0794699, -0.0464434, -0.574468, 0.0395117, 0.203431, -0.250063, 0.219778, -0.267531)
+mesh = SubResource("BoxMesh_ea3fl")
+skeleton = NodePath("../..")
