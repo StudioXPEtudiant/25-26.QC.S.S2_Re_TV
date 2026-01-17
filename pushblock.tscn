@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://mukxrgbxxb7p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_088f4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_088f4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xkvbo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5pdm"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+heightmap_enabled = true
+
+[node name="Pushblock" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_088f4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_088f4")
+debug_color = Color(1, 1, 1, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_xkvbo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_c5pdm")
