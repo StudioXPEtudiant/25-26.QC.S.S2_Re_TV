@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr4cs7spabo41"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_we21p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ea3fl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hcd8k"]
+size = Vector3(0.653687, 0.946045, 1.06299)
+
+[node name="EndroitsEffronder" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_we21p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.06919, 0.721629, 0.0229505, -0.0721765, 0.692131, -0.00319659, -0.00181915, -0.0143531, 0.999731, -0.219856, 0.229346, 0.00578048)
+mesh = SubResource("BoxMesh_ea3fl")
+skeleton = NodePath("../..")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="RigidBody3D"]
+radius = 1.0
+vertices = PackedVector3Array(-0.598889, 0, 0.757211, -0.675236, 0, 0.299547, -0.722824, 0, -0.680529, -0.0230565, 0, -0.585579, 0.00399002, 0, 0.105539)
+affect_navigation_mesh = true
+use_3d_avoidance = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.310363, 0.481567, -0.0314948)
+shape = SubResource("BoxShape3D_hcd8k")

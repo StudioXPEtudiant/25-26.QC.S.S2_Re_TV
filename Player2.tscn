@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfpkme3q1d5a6"]
+
+[ext_resource type="Script" uid="uid://2cp0rf5k1be7" path="res://Camera_mouvement.gd" id="1_mjxxk"]
+[ext_resource type="Script" uid="uid://bt11rndixbpak" path="res://Player-movement.gd" id="2_eyttc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g3ar4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qrfi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qgh46"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7vm2"]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+albedo_color = Color(0.807843, 0.498039, 0.282353, 0.231373)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wycv3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t46hy"]
+albedo_color = Color(0.341176, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5twf5"]
+material = SubResource("StandardMaterial3D_t46hy")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yn16u"]
+
+[node name="Player2" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_g3ar4")
+gravity_scale = 0.0
+script = ExtResource("1_mjxxk")
+movespeed = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.86388, 0)
+shape = SubResource("BoxShape3D_6qrfi")
+
+[node name="Camera3D" type="Camera3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.27794, 6.90487, 0.00553894)
+rotation_edit_mode = 1
+doppler_tracking = 1
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Camera3D"]
+transform = Transform3D(-9.74105e-08, -3.92693, 0, 2.22849, -1.71652e-07, 0, 0, 0, 0.40581, 0, 3.67872e-08, -0.843028)
+layers = 2
+mesh = SubResource("BoxMesh_qgh46")
+surface_material_override/0 = SubResource("StandardMaterial3D_c7vm2")
+
+[node name="Player" type="RigidBody3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.270621, 0.515487, 0.00405115)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_wycv3")
+gravity_scale = 0.5
+lock_rotation = true
+script = ExtResource("2_eyttc")
+movespeed = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_5twf5")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Player"]
+transform = Transform3D(-2, -1.23635e-07, 1.23635e-07, 1.7477e-07, -1.4554, 1.37179, 5.16879e-09, 1.37179, 1.4554, -0.00137615, -0.0614711, 0.0299828)
+light_energy = 2.5
+light_volumetric_fog_energy = 5.0
+light_specular = 5.0
+light_bake_mode = 0
+light_cull_mask = 4294967293
+shadow_enabled = true
+shadow_transmittance_bias = -4.152
+shadow_blur = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("SphereShape3D_yn16u")

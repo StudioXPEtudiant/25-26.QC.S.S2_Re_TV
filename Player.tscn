@@ -1,27 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5mwoim0bhq54"]
+[gd_scene load_steps=14 format=3 uid="uid://c5mwoim0bhq54"]
 
-[ext_resource type="Script" uid="uid://2cp0rf5k1be7" path="res://Camera_mouvement.gd" id="1_kpjcp"]
-[ext_resource type="Script" uid="uid://bt11rndixbpak" path="res://Player-movement.gd" id="1_tdem5"]
+[ext_resource type="PackedScene" uid="uid://dfpkme3q1d5a6" path="res://Player2.tscn" id="3_e80uo"]
 [ext_resource type="PackedScene" uid="uid://o0m3ymwh8n5" path="res://endroits effronder.tscn" id="3_kne1u"]
+[ext_resource type="PackedScene" uid="uid://dr4cs7spabo41" path="res://Tv blockage.tscn" id="4_cxr5p"]
 [ext_resource type="PackedScene" uid="uid://mukxrgbxxb7p" path="res://pushblock.tscn" id="4_e80uo"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e80uo"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xhfnw"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_xhfnw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpjcp"]
-transparency = 1
-blend_mode = 3
-cull_mode = 1
-albedo_color = Color(0.807843, 0.498039, 0.282353, 0.231373)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cxr5p"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dshn4"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_obed5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kpjcp"]
 
@@ -50,60 +32,6 @@ size = Vector3(6.24115, 0.45459, 7.08496)
 [sub_resource type="BoxMesh" id="BoxMesh_aaats"]
 
 [node name="Node3D" type="Node3D"]
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-mass = 0.001
-physics_material_override = SubResource("PhysicsMaterial_e80uo")
-gravity_scale = 0.0
-script = ExtResource("1_kpjcp")
-movespeed = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.86388, 0)
-shape = SubResource("BoxShape3D_xhfnw")
-
-[node name="Camera3D" type="Camera3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.27794, 6.90487, 0.00553894)
-rotation_edit_mode = 1
-doppler_tracking = 1
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/Camera3D"]
-transform = Transform3D(-9.74105e-08, -3.92693, 0, 2.22849, -1.71652e-07, 0, 0, 0, 0.40581, 0, 3.67872e-08, -0.843028)
-layers = 2
-mesh = SubResource("BoxMesh_xhfnw")
-surface_material_override/0 = SubResource("StandardMaterial3D_kpjcp")
-
-[node name="Player" type="RigidBody3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.270621, 0.515487, 0.00405115)
-axis_lock_linear_x = true
-axis_lock_linear_z = true
-mass = 5.0
-physics_material_override = SubResource("PhysicsMaterial_cxr5p")
-gravity_scale = 0.5
-lock_rotation = true
-script = ExtResource("1_tdem5")
-movespeed = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_dshn4")
-debug_color = Color(0.290659, 0.618761, 0.351924, 1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_obed5")
-skeleton = NodePath("../..")
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Player"]
-transform = Transform3D(-2, -1.23635e-07, 1.23635e-07, 1.7477e-07, -1.4554, 1.37179, 5.16879e-09, 1.37179, 1.4554, -0.00137615, -0.0614711, 0.0299828)
-light_energy = 2.5
-light_volumetric_fog_energy = 5.0
-light_specular = 5.0
-light_bake_mode = 0
-light_cull_mask = 4294967293
-shadow_enabled = true
-shadow_transmittance_bias = -4.152
-shadow_blur = 5.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0258105, 0.999667, 0, -0.999667, -0.0258105, 0, 9.83195, 0)
@@ -590,4 +518,10 @@ mesh = SubResource("BoxMesh_aaats")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2)
 
 [node name="Pushblock" parent="NavigationRegion3D" instance=ExtResource("4_e80uo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55765, 0.655428, 9.53295)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55765, 0.845489, 9.53295)
+
+[node name="Player2" parent="." instance=ExtResource("3_e80uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10409, 0.883434, -1.12373)
+
+[node name="EndroitsEffronder" parent="." instance=ExtResource("4_cxr5p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91363, 0.108996, 1.63187)
