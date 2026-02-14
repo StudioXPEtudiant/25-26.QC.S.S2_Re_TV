@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgt8sgvhyh6ae"]
+[gd_scene load_steps=9 format=3 uid="uid://cgt8sgvhyh6ae"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_up3fc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1v74c"]
 
@@ -20,10 +22,15 @@ size = Vector3(1.35324, 1.06979, 1.59644)
 [node name="Choupy_exe" type="Node3D"]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+mass = 1e+09
+physics_material_override = SubResource("PhysicsMaterial_up3fc")
+constant_force = Vector3(0.3, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="RigidBody3D"]
 
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="RigidBody3D"]
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="RigidBody3D/Skeleton3D"]
 joint_type = 3
 bone_name = "Chest"
 joint_constraints/angular_limit_enabled = false
@@ -33,70 +40,77 @@ joint_constraints/angular_limit_bias = 0.3
 joint_constraints/angular_limit_softness = 0.9
 joint_constraints/angular_limit_relaxation = 1.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/PhysicalBone3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Skeleton3D/PhysicalBone3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, 0)
 shape = SubResource("CapsuleShape3D_1v74c")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/PhysicalBone3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Skeleton3D/PhysicalBone3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, 0)
 mesh = SubResource("CapsuleMesh_up3fc")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="spider limb 1 right" type="PhysicalBone3D" parent="RigidBody3D"]
-transform = Transform3D(0.810659, 0.519164, -0.270743, -0.583697, 0.752999, -0.303793, 0.0461511, 0.404304, 0.91346, -1.32024, -0.0476835, -1.33447)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10401, 1.26085, 0.847052)
-body_offset = Transform3D(0.810659, 0.519164, -0.270743, -0.583697, 0.752999, -0.303793, 0.0461511, 0.404304, 0.91346, -1.32024, -0.0476835, -1.33447)
+[node name="spider limb 1 right" type="PhysicalBone3D" parent="RigidBody3D/Skeleton3D"]
+transform = Transform3D(0.810659, 0.519163, -0.270743, -0.583697, 0.752999, -0.303793, 0.0461511, 0.404304, 0.91346, -1.32024, -0.0476835, -1.33447)
+joint_type = 3
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10402, 1.26086, 0.847053)
+body_offset = Transform3D(0.810659, 0.519163, -0.270743, -0.583697, 0.752999, -0.303793, 0.0461511, 0.404304, 0.91346, -1.32024, -0.0476835, -1.33447)
+joint_constraints/angular_limit_enabled = false
+joint_constraints/angular_limit_upper = 90.0
+joint_constraints/angular_limit_lower = -90.0
+joint_constraints/angular_limit_bias = 0.3
+joint_constraints/angular_limit_softness = 0.9
+joint_constraints/angular_limit_relaxation = 1.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/spider limb 1 right"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Skeleton3D/spider limb 1 right"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00985467, 1.5, 0.0140272)
 shape = SubResource("BoxShape3D_2bthe")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/spider limb 1 right"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Skeleton3D/spider limb 1 right"]
 transform = Transform3D(0.215174, 0, 0, 0, -1.12938e-08, -1, 0, 0.258373, -4.37114e-08, 0, 1.5, 0)
 mesh = SubResource("BoxMesh_1paaq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="spider limb 1 right2" type="PhysicalBone3D" parent="RigidBody3D"]
-transform = Transform3D(0.704692, -0.655897, 0.27057, 0.583893, 0.75275, 0.304033, -0.403086, -0.0562654, 0.913431, 1.56294, -0.161306, -0.461801)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19335, 1.12056, 0.0479811)
-body_offset = Transform3D(0.704692, -0.655897, 0.27057, 0.583893, 0.75275, 0.304033, -0.403086, -0.0562654, 0.913431, 1.56294, -0.161306, -0.461801)
+[node name="spider limb 1 right2" type="PhysicalBone3D" parent="RigidBody3D/Skeleton3D"]
+transform = Transform3D(0.704692, -0.655897, 0.27057, 0.583893, 0.75275, 0.304033, -0.403086, -0.0562655, 0.913431, 1.56294, -0.161306, -0.461801)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19335, 1.12057, 0.0479808)
+body_offset = Transform3D(0.704692, -0.655897, 0.27057, 0.583893, 0.75275, 0.304033, -0.403086, -0.0562655, 0.913431, 1.56294, -0.161306, -0.461801)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/spider limb 1 right2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Skeleton3D/spider limb 1 right2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00985467, 1.5, 0.0140272)
 shape = SubResource("BoxShape3D_2bthe")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/spider limb 1 right2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Skeleton3D/spider limb 1 right2"]
 transform = Transform3D(0.215174, 0, 0, 0, -1.12938e-08, -1, 0, 0.258373, -4.37114e-08, 0, 1.5, 0)
 mesh = SubResource("BoxMesh_1paaq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="spider limb 1 right3" type="PhysicalBone3D" parent="RigidBody3D"]
-transform = Transform3D(0.810659, 0.519164, -0.270743, -0.583697, 0.752999, -0.303793, 0.0461511, 0.404304, 0.91346, -1.37475, -0.13512, -0.347566)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05162, 0.955985, -0.0957636)
-body_offset = Transform3D(0.810659, 0.519164, -0.270743, -0.583697, 0.752999, -0.303793, 0.0461511, 0.404304, 0.91346, -1.37475, -0.13512, -0.347566)
+[node name="spider limb 1 right3" type="PhysicalBone3D" parent="RigidBody3D/Skeleton3D"]
+transform = Transform3D(0.810659, 0.519163, -0.270743, -0.583697, 0.752999, -0.303793, 0.0461511, 0.404304, 0.91346, -1.37475, -0.13512, -0.347566)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05162, 0.955987, -0.0957645)
+body_offset = Transform3D(0.810659, 0.519163, -0.270743, -0.583697, 0.752999, -0.303793, 0.0461511, 0.404304, 0.91346, -1.37475, -0.13512, -0.347566)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/spider limb 1 right3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Skeleton3D/spider limb 1 right3"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00985467, 1.5, 0.0140272)
 shape = SubResource("BoxShape3D_2bthe")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/spider limb 1 right3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Skeleton3D/spider limb 1 right3"]
 transform = Transform3D(0.215174, 0, 0, 0, -1.12938e-08, -1, 0, 0.258373, -4.37114e-08, 0, 1.5, 0)
 mesh = SubResource("BoxMesh_1paaq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="spider limb 1 right4" type="PhysicalBone3D" parent="RigidBody3D"]
-transform = Transform3D(0.704692, -0.655897, 0.27057, 0.583893, 0.75275, 0.304033, -0.403086, -0.0562654, 0.913431, 1.58694, -0.183688, 0.480192)
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.817488, 1.20616, -0.812153)
-body_offset = Transform3D(0.704692, -0.655897, 0.27057, 0.583893, 0.75275, 0.304033, -0.403086, -0.0562654, 0.913431, 1.58694, -0.183688, 0.480192)
+[node name="spider limb 1 right4" type="PhysicalBone3D" parent="RigidBody3D/Skeleton3D"]
+transform = Transform3D(0.704692, -0.655897, 0.27057, 0.583893, 0.75275, 0.304033, -0.403086, -0.0562655, 0.913431, 1.58694, -0.183688, 0.480192)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.817491, 1.20616, -0.812154)
+body_offset = Transform3D(0.704692, -0.655897, 0.27057, 0.583893, 0.75275, 0.304033, -0.403086, -0.0562655, 0.913431, 1.58694, -0.183688, 0.480192)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/spider limb 1 right4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Skeleton3D/spider limb 1 right4"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.00985467, 1.5, 0.0140272)
 shape = SubResource("BoxShape3D_2bthe")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/spider limb 1 right4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/Skeleton3D/spider limb 1 right4"]
 transform = Transform3D(0.215174, 0, 0, 0, -1.12938e-08, -1, 0, 0.258373, -4.37114e-08, 0, 1.5, 0)
 mesh = SubResource("BoxMesh_1paaq")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="RigidBody3D"]
 transform = Transform3D(1, 7.45058e-09, -1.49012e-08, 7.45058e-09, 1, 0, 0, 0, 1, 0, 5.96046e-08, -2.98023e-08)
@@ -112,5 +126,25 @@ shape = SubResource("CapsuleShape3D_up3fc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody3D"]
 root_node = NodePath("../..")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="RigidBody3D"]
+transform = Transform3D(1, 4.47035e-08, 2.98023e-08, -3.72529e-08, 1, 2.98023e-08, -1.49012e-08, 2.98023e-08, 1, 2.45404e-07, 0.954224, -1.19695)
+node_a = NodePath("../Skeleton3D/PhysicalBone3D")
+node_b = NodePath("../Skeleton3D/spider limb 1 right")
+
+[node name="HingeJoint3D2" type="HingeJoint3D" parent="RigidBody3D"]
+transform = Transform3D(1, 4.47035e-08, 2.98023e-08, -3.72529e-08, 1, 2.98023e-08, -1.49012e-08, 2.98023e-08, 1, -0.258926, 1.28512, 0.430259)
+node_a = NodePath("../Skeleton3D/PhysicalBone3D")
+node_b = NodePath("../Skeleton3D/spider limb 1 right")
+
+[node name="HingeJoint3D3" type="HingeJoint3D" parent="RigidBody3D"]
+transform = Transform3D(1, 4.47035e-08, 2.98023e-08, -3.72529e-08, 1, 2.98023e-08, -1.49012e-08, 2.98023e-08, 1, 0.264006, 0.951918, -0.639092)
+node_a = NodePath("../Skeleton3D/PhysicalBone3D")
+node_b = NodePath("../Skeleton3D/spider limb 1 right3")
+
+[node name="HingeJoint3D4" type="HingeJoint3D" parent="RigidBody3D"]
+transform = Transform3D(1, 4.47035e-08, 2.98023e-08, -3.72529e-08, 1, 2.98023e-08, -1.49012e-08, 2.98023e-08, 1, 0.356844, 1.15201, 0.346903)
+node_a = NodePath("../Skeleton3D/PhysicalBone3D")
+node_b = NodePath("../Skeleton3D/spider limb 1 right4")
 
 [node name="choupy arm" type="Node3D" parent="."]

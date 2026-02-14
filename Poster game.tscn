@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5232o788io3h"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5srnq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_htg27"]
+
+[node name="PosterGame" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_5srnq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.255998, 0.201696, -0.945401, -0.961578, 0.153457, -0.227639, 0.0991642, 0.967352, 0.233231, 0, 0, 0)
+mesh = SubResource("BoxMesh_htg27")
+skeleton = NodePath("../..")
