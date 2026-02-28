@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuwtxpxpip18e"]
+
+[ext_resource type="PackedScene" uid="uid://ctgv6dcwgjvaf" path="res://hazmat player .tscn" id="1_4rdhj"]
+[ext_resource type="Script" uid="uid://dy25uv1vfeeb" path="res://realplayer.gd" id="2_dnyxv"]
+
+[node name="UAL1_Standard" instance=ExtResource("1_4rdhj")]
+script = ExtResource("2_dnyxv")

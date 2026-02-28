@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctgv6dcwgjvaf"]
+
+[ext_resource type="PackedScene" uid="uid://hcptx1iawdmv" path="res://Hazmat/Hazmat_Character.fbx" id="1_dw6vm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Hazmat_Character" parent="." instance=ExtResource("1_dw6vm")]
