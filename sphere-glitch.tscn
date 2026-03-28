@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://sgmcdvj3meos"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jqxh0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtaeq"]
+rim_enabled = true
+
+[node name="Éfondreur" type="Node3D"]
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_jqxh0")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_jtaeq")

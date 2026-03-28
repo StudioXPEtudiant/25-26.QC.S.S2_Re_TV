@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmmt2ck0nm67m"]
+
+[ext_resource type="PackedScene" uid="uid://bk8delj4mjbow" path="res://Hazmat/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb" id="1_sbdkl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sbdkl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3x7s0"]
+size = Vector3(1, 2.38477, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="UAL1_Standard" parent="." instance=ExtResource("1_sbdkl")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="UAL1_Standard"]
+physics_material_override = SubResource("PhysicsMaterial_sbdkl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UAL1_Standard/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00583363, 0.700914, 0.00685573)
+shape = SubResource("BoxShape3D_3x7s0")

@@ -36,5 +36,4 @@ func _process(delta):
 		if anim.current_animation != "Walk_Formal":
 			anim.play("Walk_Formal")
 	else:
-		if anim.current_animation != "Idle":
 			anim.play("Idle")

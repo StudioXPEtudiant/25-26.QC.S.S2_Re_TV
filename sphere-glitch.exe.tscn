@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn5vourg3m5sw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_2oeua"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mq037"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0.298039, 1, 1)
+rim_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ekc0c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_safxf"]
+albedo_color = Color(1, 1, 0, 1)
+rim_enabled = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_n3biu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvn8i"]
+albedo_color = Color(1, 0, 1, 1)
+rim_enabled = true
+
+[node name="Éfondreur" type="Node3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_2oeua")
+surface_material_override/0 = SubResource("StandardMaterial3D_mq037")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.318294, -7.45058e-09, -0.192956, -0.227087, 0.139472, -0.239914, 0.0810229, 0.390906, 0.0855993, -0.315863, 0.294488, 0)
+mesh = SubResource("BoxMesh_ekc0c")
+surface_material_override/0 = SubResource("StandardMaterial3D_safxf")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.485392, 0.571747, 0, -0.571747, 0.485392, 0, 0, 0, 0.75, 0.320635, 0.272886, 0)
+mesh = SubResource("PrismMesh_n3biu")
+surface_material_override/0 = SubResource("StandardMaterial3D_vvn8i")
