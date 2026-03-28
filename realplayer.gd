@@ -1,20 +1,23 @@
 extends Node3D
-
 @onready var anim = $AnimationPlayer
 @export var speed: float = 5.0
-@export var rotation_speed: float = 5.0
+@export var rotation_speed: float = 100
 func _process(delta):
 	var direction := Vector3.ZERO
 
 	# Input
-	if Input.is_action_pressed("L_Left"):
-		direction.x -= 1
-	if Input.is_action_pressed("L_Right"):
+	if Input.is_action_pressed("J1up"):
 		direction.x += 1
-	if Input.is_action_pressed("L_Up"):
-		direction.z += 1
-	if Input.is_action_pressed("L_Down"):
+		anim.play ("Walk_Formal")
+	if Input.is_action_pressed("J1down"):
+		direction.x -= 1
+		anim.play ("Walk_Formal")
+	if Input.is_action_pressed("J1left"):
 		direction.z -= 1
+		anim.play ("Walk_Formal")
+	if Input.is_action_pressed("J1right"):
+		direction.z += 1
+		anim.play ("Walk_Formal")
 
 	# Normalisation
 	if direction != Vector3.ZERO:
@@ -25,16 +28,9 @@ func _process(delta):
 		rotation.y = lerp_angle(rotation.y, target_angle, rotation_speed * delta)
 	else:
 		# Pas de rotation si pas de mouvement
+		anim.play("Idle")
 		pass
 
 	# Mouvement global
 	var global_move := transform.basis * direction
 	translate(global_move * speed * delta)
-
-	# Animations
-	if direction != Vector3.ZERO:
-		if anim.current_animation != "Walk_Formal":
-			anim.play("Walk_Formal")
-	else:
-		if anim.current_animation != "Idle":
-			anim.play("Idle")
