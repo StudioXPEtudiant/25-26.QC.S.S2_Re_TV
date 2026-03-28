@@ -24,4 +24,4 @@ func _physics_process (delta:float):
 	var direction : Vector3 = Vector3(verticaleAxe,0,horizontalAxe)
 	position=position+direction*delta*movespeed
 	if direction !=Vector3.ZERO:
-		look_at(position-direction)
+		look_at(position-direction*2)

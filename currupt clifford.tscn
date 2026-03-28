@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://5safmhwptiu2"]
+
+[ext_resource type="Script" uid="uid://c02frtgega2te" path="res://clifford chase script.gd" id="1_ptt44"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r8364"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hucrq"]
+size = Vector3(8.95691, 8.77832, 19.9924)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vitoy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tato2"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="CurruptClifford" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_r8364")
+script = ExtResource("1_ptt44")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.531677, 3.88916, -4.65105)
+shape = SubResource("BoxShape3D_hucrq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+transform = Transform3D(3.8967, 0, 0, 0, 3.66089, 0, 0, 0, 13.3671, -0.531677, -2.05057, 0.949848)
+mesh = SubResource("BoxMesh_vitoy")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tato2")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+transform = Transform3D(6.64689, 0, 0, 0, 6.26964, 0, 0, 0, 5.11081, -0.145865, 1.24697, 6.12274)
+mesh = SubResource("BoxMesh_vitoy")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tato2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+transform = Transform3D(3.28504, 0, 0, 0, 2.49566, 0, 0, 0, 6.07463, 2.83966, -2.93805, 7.30308)
+mesh = SubResource("BoxMesh_vitoy")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tato2")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+transform = Transform3D(3.28504, 0, 0, 0, 2.49566, 0, 0, 0, 6.07463, -3.39603, -2.93805, 7.30308)
+mesh = SubResource("BoxMesh_vitoy")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tato2")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+transform = Transform3D(3.28504, 0, 0, 0, 2.49566, 0, 0, 0, 6.07463, 2.73058, -2.93805, -6.14147)
+mesh = SubResource("BoxMesh_vitoy")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tato2")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+transform = Transform3D(3.28504, 0, 0, 0, 2.49566, 0, 0, 0, 6.07463, -3.50512, -2.93805, -6.14147)
+mesh = SubResource("BoxMesh_vitoy")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tato2")
