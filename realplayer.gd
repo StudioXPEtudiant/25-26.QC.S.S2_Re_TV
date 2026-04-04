@@ -8,16 +8,16 @@ func _process(delta):
 	# Input
 	if Input.is_action_pressed("J1up"):
 		direction.x += 1
-		anim.play ("Walk_Formal")
+		anim.play ("Sprint")
 	if Input.is_action_pressed("J1down"):
 		direction.x -= 1
-		anim.play ("Walk_Formal")
+		anim.play ("Sprint")
 	if Input.is_action_pressed("J1left"):
 		direction.z -= 1
-		anim.play ("Walk_Formal")
+		anim.play ("Sprint")
 	if Input.is_action_pressed("J1right"):
 		direction.z += 1
-		anim.play ("Walk_Formal")
+		anim.play ("Sprint")
 
 	# Normalisation
 	if direction != Vector3.ZERO:
