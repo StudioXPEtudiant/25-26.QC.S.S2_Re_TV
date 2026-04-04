@@ -5,6 +5,8 @@ size = Vector3(9.2486, 3.87793, 7.80078)
 
 [node name="TriggerDeChase" type="Node3D"]
 
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
