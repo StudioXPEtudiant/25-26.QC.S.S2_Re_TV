@@ -2,6 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bk8delj4mjbow" path="res://Hazmat/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb" id="1_iwbuy"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="UAL1_Standard" parent="." instance=ExtResource("1_iwbuy")]

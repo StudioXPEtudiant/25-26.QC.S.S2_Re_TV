@@ -1,7 +1,7 @@
 extends Node3D
 @onready var anim = $AnimationPlayer
 @export var speed: float = 5.0
-@export var rotation_speed: float = 100
+@export var rotation_speed: float = 15
 func _process(delta):
 	var direction := Vector3.ZERO
 
@@ -37,7 +37,7 @@ func _process(delta):
 
 	# Animations
 	if direction != Vector3.ZERO:
-		if anim.current_animation != "Walk_Formal":
-			anim.play("Walk_Formal")
+		if anim.current_animation != "Sprint":
+			anim.play("Sprint")
 	else:
 			anim.play("Idle")

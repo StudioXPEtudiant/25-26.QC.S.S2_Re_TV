@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bk8delj4mjbow" path="res://Hazmat/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb" id="1_noarx"]
 [ext_resource type="Script" uid="uid://dy25uv1vfeeb" path="res://realplayer.gd" id="2_a0tk4"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="UAL1_Standard" parent="." instance=ExtResource("1_noarx")]
 script = ExtResource("2_a0tk4")
