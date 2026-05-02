@@ -1,9 +1,11 @@
 extends Node3D
+
 @onready var anim = $AnimationPlayer
 @export var speed: float = 5.0
 @export var rotation_speed: float = 15
 func _process(delta):
 	var direction := Vector3.ZERO
+	
 
 	# Input
 	if Input.is_action_pressed("J1up"):
