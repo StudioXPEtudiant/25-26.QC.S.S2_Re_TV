@@ -20,6 +20,9 @@ func _process(delta):
 	if Input.is_action_pressed("J1right"):
 		direction.z += 1
 		anim.play ("Sprint")
+	if Input.is_action_pressed("L"):
+		anim.play ("Crouch_Fwd")
+		
 
 	# Normalisation
 	if direction != Vector3.ZERO:
